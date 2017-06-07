@@ -84,6 +84,15 @@ class view
         $content = $this->_compile(file_get_contents($this->_template));
         echo $content;
     }
+	
+	public function toString(string $template, $cache = false): string
+	{
+		$this->_template = $this->_path . $template;
+		if (!file_exists($this->_template))
+			die('Шаблона ' . $this->_template . ' не существует!');
+		$content = $this->_compile(file_get_contents($this->_template));
+		return $content;
+	}
 }
 
 $config = include('config.php');
