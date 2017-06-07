@@ -85,7 +85,7 @@ class view
         echo $content;
     }
 	
-	public function toString(string $template, $cache = false): string
+	public function toString(string $template): string
 	{
 		$this->_template = $this->_path . $template;
 		if (!file_exists($this->_template))
